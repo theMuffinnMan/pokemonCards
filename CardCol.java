@@ -40,6 +40,17 @@ public class CardCol
      * allows the user to add a card to the collection
      * @card name
      * @card value
+     */
+    public void addCard(String name, double value){
+        //sets card id
+        this.setCardId();
+        collection.put(this.currCardId, new Card(this.currCardId, name, value));
+    }
+    
+    /**
+     * allows the user to add a card to the collection
+     * @card name
+     * @card value
      * @card image
      */
     public void addCard(String name, double value, String image){

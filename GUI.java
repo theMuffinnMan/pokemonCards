@@ -2,7 +2,7 @@ import ecs100.*;
 /**
  * Displays images in the GUI
  * writes text in the GUI
- * User interaction in the GUI
+ * User interaction in the GUI (add card, find card)
  *
  * @Fleur
  * @21/5
@@ -18,7 +18,7 @@ public class GUI
     public GUI()
     {
         // initialise instance variables
-        CardCol cardCol = new CardCol();
+        cardCol = new CardCol();
         
         UI.addButton("Add Card", this::addCard);
     }
@@ -33,9 +33,9 @@ public class GUI
         //user enters card value
         double value = UI.askDouble("Value of Pokemon Card: ");
         //user enters card image
-        String image = null;
+        String imgFileName = UIFileChooser.open("Choose Image File: ");
         
-        this.cardCol.addCard(name, value, image);
+        this.cardCol.addCard(name, value, imgFileName);
     }
     
     public void findCard(){
