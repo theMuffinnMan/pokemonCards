@@ -9,7 +9,7 @@ public class Card
 {
     // fields
     private String name;
-    private int value;
+    private double value;
     private String image;
     private int id;
     static final String DEFUALT_IMAGE = "image name here"; // a defualt image value
@@ -18,7 +18,7 @@ public class Card
     /**
      * Constructor for objects of class Card
      */
-    public Card(int key, String nm, int vl, String img)
+    public Card(int key, String nm, double vl, String img)
     {
         // initialise instance variables
         this.id = key;
