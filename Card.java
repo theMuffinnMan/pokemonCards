@@ -1,4 +1,4 @@
-
+import ecs100.*;
 /**
  * Object class for Cards and GUI
  *
@@ -13,6 +13,13 @@ public class Card
     private String image;
     private int id;
     static final String DEFUALT_IMAGE = "DEFUALT_IMAGE.png"; // a defualt image value
+    
+    //values for display testing
+    private double x = 100;
+    private double y = 100;
+    
+    private final double WIDTH = 500;
+    private final double HEIGHT = 700;
     
 
     /**
@@ -40,6 +47,11 @@ public class Card
      */
     public Card(int key, String nm, double vl){
         this(key, nm, vl, DEFUALT_IMAGE);
+    }
+    
+    public void displayCard(){
+        //displays the card
+        UI.drawImage(this.image, this.x, this.y, this.WIDTH, this.HEIGHT);
     }
     
     /**

@@ -27,7 +27,7 @@ public class GUI
     {
         // initialise instance variables
         cardCol = new CardCol();
-        this.displayCard();
+        displayCard();
         
         UI.addButton("Add Card", this::addCard);
         UI.addButton("Find Card", this::findCard);
@@ -64,6 +64,6 @@ public class GUI
     
     public void displayCard(){
         //displays the card
-        UI.drawImage(card.getImg(), this.x, this.y, this.WIDTH, this.HEIGHT);
+        UI.drawImage(cardCol.getCard().getImg(), this.x, this.y, this.WIDTH, this.HEIGHT);
     }
 }

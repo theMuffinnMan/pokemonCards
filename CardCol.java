@@ -28,6 +28,7 @@ public class CardCol
         Card p3 = new Card(3, "Typhlosion", 300);
         
         this.currCardId = 3; // stores the current book id
+        this.currCard = collection.get(currCardId); // sets intial current card
     }
     
     /**
