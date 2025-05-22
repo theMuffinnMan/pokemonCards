@@ -13,6 +13,7 @@ public class CardCol
     // fields
     private HashMap<Integer, Card> collection; // declaring the collection hashmap
     private int currCardId;
+    private Card currCard;
 
     /**
      * Constructor for objects of class Cards
@@ -22,9 +23,9 @@ public class CardCol
         collection = new HashMap<Integer, Card>();
         
         // initail cards in Collection
-        Card p1 = new Card(1, "Garchomp", 850, null);
-        Card p2 = new Card(2, "Umberon", 11000, null);
-        Card p3 = new Card(3, "Typhlosion", 300, null);
+        Card p1 = new Card(1, "Garchomp", 850);
+        Card p2 = new Card(2, "Umberon", 11000);
+        Card p3 = new Card(3, "Typhlosion", 300);
         
         this.currCardId = 3; // stores the current book id
     }
@@ -57,5 +58,28 @@ public class CardCol
         //sets card id
         this.setCardId();
         collection.put(this.currCardId, new Card(this.currCardId, name, value, image));
+    }
+    
+    /**
+     * find a card based off the cards name
+     * set the current instance card if found
+     * @return true or false
+     */
+    public boolean findCard(String name){
+        //search for the card
+        for(int cardId: collection.keySet()){
+            if(collection.get(cardId).getName().toLowerCase().equals(name.toLowerCase())){
+                currCard = collection.get(cardId);
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * Card getter
+     */
+    public Card getCard(){
+        return this.currCard;
     }
 }

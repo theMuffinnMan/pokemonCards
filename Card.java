@@ -41,4 +41,18 @@ public class Card
     public Card(int key, String nm, double vl){
         this(key, nm, vl, DEFUALT_IMAGE);
     }
+    
+    /**
+     * name getter
+     */
+    public String getName(){
+        return this.name;
+    }
+    
+    /**
+     * Image getter
+     */
+    public String getImg(){
+        return this.image;
+    }
 }
