@@ -27,6 +27,11 @@ public class CardCol
         Card p2 = new Card(2, "Umberon", 11000);
         Card p3 = new Card(3, "Typhlosion", 300);
         
+        //add cards to the collection
+        this.collection.put(1, p1);
+        this.collection.put(2, p2);
+        this.collection.put(3, p3);
+        
         this.currCardId = 3; // stores the current book id
         this.currCard = collection.get(currCardId); // sets intial current card
     }
