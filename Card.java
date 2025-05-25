@@ -49,16 +49,18 @@ public class Card
         this(key, nm, vl, DEFUALT_IMAGE);
     }
     
-    public void displayCard(){
-        //displays the card
-        UI.drawImage(this.image, this.x, this.y, this.WIDTH, this.HEIGHT);
-    }
-    
     /**
      * name getter
      */
     public String getName(){
         return this.name;
+    }
+    
+    /**
+     * value getter
+     */
+    public double getValue(){
+        return this.value;
     }
     
     /**
