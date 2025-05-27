@@ -83,6 +83,20 @@ public class CardCol
     }
     
     /**
+     * View all cards
+     * loops through all cards and prints the names and info in the text box
+     * i couldnt figure out how to do this in the gui but i would if i could
+     */
+    public void viewAll(){
+        for(int cardId: collection.keySet()){
+            //prints out card info
+            UI.println("Name: " + collection.get(cardId).getName());
+            UI.println("Value: " + collection.get(cardId).getValue());
+            UI.println();
+        }
+    }
+    
+    /**
      * Card getter
      */
     public Card getCard(){

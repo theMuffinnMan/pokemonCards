@@ -21,8 +21,9 @@ public class GUI
     private final double WIDTH = 200;
     private final double HEIGHT = 280;
     
-    //text pos
-    
+    // text pos
+    private final int NM_POS = 400;
+    private final int VL_POS = 420;
     
     /**
      * Constructor for objects of class GUI
@@ -36,7 +37,7 @@ public class GUI
         UI.addButton("Add Card", this::addCard);
         UI.addButton("Find Card", this::findCard);
         UI.addButton("View All", this::viewAll);
-        UI.addButton("Hide", this::hideInfo);
+        UI.addButton("Hide", this::hideAll);
         UI.addButton("Quit", UI::quit);
     }
     
@@ -64,7 +65,7 @@ public class GUI
      */
     public void findCard(){
         //clears text
-        UI.clearText();
+        this.hideAll();
         // allows user to enter the name of a card
         String cardName = UI.askString("Name of card: ");
         // search for card
@@ -83,13 +84,17 @@ public class GUI
      * Shows all cards name and value
      */
     public void viewAll(){
-        //
+        //prints all card information in the text box
+        //clears text
+        this.hideAll();
+        // doing this through cardcol because i cant figure out how to do it through the gui im sorry
+        cardCol.viewAll();
     }
     
     /**
      * hides all card information in GUI and text box
      */
-    public void hideInfo(){
+    public void hideAll(){
         //clears text pane
         UI.clearText();
         //clears the graphics pane
@@ -105,7 +110,7 @@ public class GUI
         UI.drawImage(cardCol.getCard().getImg(), this.x, this.y, this.WIDTH, this.HEIGHT);
         
         //displays the information
-        UI.drawString("Name: " + cardCol.getCard().getName(),this.x, 400);
-        UI.drawString("Value: " + cardCol.getCard().getValue(), this.x, 420);
+        UI.drawString("Name: " + cardCol.getCard().getName(),this.x, this.NM_POS);
+        UI.drawString("Value: " + cardCol.getCard().getValue(), this.x, this.VL_POS);
     }
 }
