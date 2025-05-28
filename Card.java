@@ -12,7 +12,7 @@ public class Card
     private double value;
     private String image;
     private int id;
-    static final String DEFUALT_IMAGE = "DEFUALT_IMAGE.png"; // a defualt image value
+    static final String DEFUALT_IMAGE = "img/DEFUALT_IMAGE.png"; // a defualt image value
     
     //values for display testing
     private double x = 100;

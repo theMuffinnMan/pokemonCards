@@ -23,9 +23,9 @@ public class CardCol
         collection = new HashMap<Integer, Card>();
         
         // initail cards in Collection
-        Card p1 = new Card(1, "Garchomp", 850);
-        Card p2 = new Card(2, "Umberon", 11000);
-        Card p3 = new Card(3, "Typhlosion", 300);
+        Card p1 = new Card(1, "Garchomp", 850, "img/garchomp.png");
+        Card p2 = new Card(2, "Umbreon ex", 11000, "img/umbreon ex.png");
+        Card p3 = new Card(3, "Typhlosion", 300, "img/typhlosion.png");
         
         //add cards to the collection
         this.collection.put(1, p1);
@@ -52,6 +52,8 @@ public class CardCol
         //sets card id
         this.setCardId();
         collection.put(this.currCardId, new Card(this.currCardId, name, value));
+        //sets added card to the current card
+        this.currCard = collection.get(currCardId);
     }
     
     /**
@@ -64,6 +66,8 @@ public class CardCol
         //sets card id
         this.setCardId();
         collection.put(this.currCardId, new Card(this.currCardId, name, value, image));
+        //sets added card to the current card
+        this.currCard = collection.get(currCardId);
     }
     
     /**

@@ -14,16 +14,16 @@ public class GUI
     private Card card;
     
     // img start pos
-    private double x = 100;
-    private double y = 100;
+    private double x = 30;
+    private double y = 30;
     
     // img size
-    private final double WIDTH = 200;
-    private final double HEIGHT = 280;
+    private final double WIDTH = 250;
+    private final double HEIGHT = 350;
     
     // text pos
     private final int NM_POS = 400;
-    private final int VL_POS = 420;
+    private final int VL_POS = 430;
     
     /**
      * Constructor for objects of class GUI
@@ -32,6 +32,7 @@ public class GUI
     {
         // initialise instance variables
         cardCol = new CardCol();
+        UI.setFontSize(17);
         
         //GUI buttons
         UI.addButton("Add Card", this::addCard);
@@ -46,7 +47,7 @@ public class GUI
      */
     public void addCard(){
         //clears text
-        UI.clearText();
+        this.hideAll();
         //Adds card to the collection
         //user enters card name
         String name = UI.askString("Name of Pokemon Card: ");
@@ -55,9 +56,13 @@ public class GUI
         //user enters card image
         String imgFileName = UIFileChooser.open("Choose Image File: ");
         
+        //adds card to collection
         this.cardCol.addCard(name, value, imgFileName);
         
         UI.println("Card Added!");
+        
+        //display the card
+        this.displayCard();
     }
     
     /**
