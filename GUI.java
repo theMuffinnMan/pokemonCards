@@ -25,6 +25,12 @@ public class GUI
     private final int NM_POS = 400;
     private final int VL_POS = 430;
     
+    //max value user can enter
+    //value taken from most expensive pokemon card sold (5.75mil) rounded up
+    final double MAX_VALUE = 6000000;
+    
+    private int value;
+    
     /**
      * Constructor for objects of class GUI
      */
@@ -32,7 +38,6 @@ public class GUI
     {
         // initialise instance variables
         cardCol = new CardCol();
-        UI.setFontSize(17);
         
         //GUI buttons
         UI.addButton("Add Card", this::addCard);
@@ -40,6 +45,10 @@ public class GUI
         UI.addButton("View All", this::viewAll);
         UI.addButton("Hide", this::hideAll);
         UI.addButton("Quit", UI::quit);
+        //other UI
+        UI.setFontSize(17);
+        UI.setMouseListener(this::doMouse);
+        
     }
     
     /**
@@ -52,7 +61,22 @@ public class GUI
         //user enters card name
         String name = UI.askString("Name of Pokemon Card: ");
         //user enters card value
-        double value = UI.askDouble("Value of Pokemon Card: ");
+        //check boundaries for card value
+        do{
+            value = UI.askInt("Value of Pokemon Card: ");
+            if((value > 0) && (value <= MAX_VALUE)){
+                UI.println("Added");
+            }
+            else if(value > MAX_VALUE) {
+                UI.println("Must be less than 6000000");
+            }
+            else if (value < 1) {
+                UI.println("Must be greater than 0");
+            }
+            else{
+                UI.println("Must be a number!");
+            }
+        }while (0 > value || value > MAX_VALUE);
         //user enters card image
         String imgFileName = UIFileChooser.open("Choose Image File: ");
         
@@ -117,5 +141,18 @@ public class GUI
         //displays the information
         UI.drawString("Name: " + cardCol.getCard().getName(),this.x, this.NM_POS);
         UI.drawString("Value: " + cardCol.getCard().getValue(), this.x, this.VL_POS);
+    }
+    
+    /**
+     * doMouse
+     * mouse interaction with pokemon cards
+     */
+    public void doMouse(String action, double mouseX, double mouseY){
+        //checks if mouse clicked on card
+        if (action.equals("clicked") && mouseX > this.x && mouseX < this.x + this.WIDTH
+        && mouseY > this.y && mouseY < this.y + this.HEIGHT){
+            //hides current card info
+            UI.clearGraphics();
+        }
     }
 }
