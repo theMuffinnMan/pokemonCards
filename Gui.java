@@ -63,7 +63,7 @@ public class Gui {
     do {
       value = UI.askInt("Value of Pokemon Card: ");
       if ((value > 0) && (value <= MAX_VALUE)) {
-        UI.println("Added");
+        // do nothing
       } else if (value > MAX_VALUE) {
         UI.println("Must be less than 6000000");
       } else if (value < 1) {
@@ -71,7 +71,7 @@ public class Gui {
       } else {
         UI.println("Must be a number!");
       }
-      } while (0 > value || value > MAX_VALUE);
+      } while (0 >= value || value > MAX_VALUE);
     //user enters card image
     String imgFileName = UIFileChooser.open("Choose Image File: ");
     
@@ -135,7 +135,7 @@ public class Gui {
     
     //displays the information
     UI.drawString("Name: " + cardCol.getCard().getName(), this.x, this.NmPos);
-    UI.drawString("Value: " + cardCol.getCard().getValue(), this.x, this.VlPos);
+    UI.drawString("Value: $" + cardCol.getCard().getValue(), this.x, this.VlPos);
   }
   
   /**
