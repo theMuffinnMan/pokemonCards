@@ -1,9 +1,8 @@
 /**
   * Main method - single entry point.
-  *
+
   * @Fleur
-  * 
-  * @21/5
+    21/5
  */
 public class Main {
   //feilds

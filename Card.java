@@ -1,9 +1,9 @@
 import ecs100.*;
 /**
  * Object class for Cards and GUI.
- *
- * @Fleur
- * 19/5
+
+ *   @Fleur
+     19/5
  */
 public class Card {
   // fields
@@ -17,8 +17,8 @@ public class Card {
   private double x = 100;
   private double y = 100;
     
-  private final double WIDTH = 500;
-  private final double HEIGHT = 700;
+  private static final double WIDTH = 500;
+  private static final double HEIGHT = 700;
     
 
   /**
@@ -30,7 +30,7 @@ public class Card {
     this.name = nm;
     this.value = vl;
     // set image
-    if(img == null) {
+    if (img == null) {
       // set image to defualt if no image is entered
       this.image = DEFUALT_IMAGE;
     } else {

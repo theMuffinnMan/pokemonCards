@@ -3,10 +3,11 @@ import ecs100.*;
  * Displays images in the GUI.
  * writes text in the GUI
  * User interaction in the GUI (add card, find card)
- *
- * @Fleur
- * @21/5
+
+ *  @Fleur
+    21/5
  */
+
 public class Gui {
   // feilds
   private CardCol cardCol;
@@ -46,6 +47,7 @@ public class Gui {
     //other UI
     UI.setFontSize(17);
     UI.setMouseListener(this::doMouse);
+
       
   }
   
@@ -71,7 +73,7 @@ public class Gui {
       } else {
         UI.println("Must be a number!");
       }
-      } while (0 >= value || value > MAX_VALUE);
+    } while (0 >= value || value > MAX_VALUE);
     //user enters card image
     String imgFileName = UIFileChooser.open("Choose Image File: ");
     
@@ -107,6 +109,7 @@ public class Gui {
   /**
    * Shows all cards name and value.
    */
+  
   public void viewAll() {
     //prints all card information in the text box
     //clears text
@@ -145,7 +148,7 @@ public class Gui {
   public void doMouse(String action, double mouseX, double mouseY) {
     //checks if mouse clicked on card
     if (action.equals("clicked") && mouseX > this.x && mouseX < this.x + this.Width
-    && mouseY > this.y && mouseY < this.y + this.Height){
+        && mouseY > this.y && mouseY < this.y + this.Height) {
       //hides current card info
       UI.clearGraphics();
     }
