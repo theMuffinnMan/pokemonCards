@@ -1,4 +1,4 @@
-import ecs100.*;
+
 /**
  * Object class for Cards and GUI.
 
@@ -13,10 +13,6 @@ public class Card {
   private int id;
   static final String DEFUALT_IMAGE = "img/DEFUALT_IMAGE.png"; // a defualt image value
   
-  //values for display testing
-  private double x = 100;
-  private double y = 100;
-    
   private static final double WIDTH = 500;
   private static final double HEIGHT = 700;
     

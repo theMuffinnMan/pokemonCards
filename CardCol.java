@@ -1,4 +1,4 @@
-import ecs100.*;
+import ecs100.UI;
 import java.util.HashMap;
 /**
  * Managment class for hashmap of card collection.

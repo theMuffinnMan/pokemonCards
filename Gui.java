@@ -1,4 +1,5 @@
-import ecs100.*;
+import ecs100.UI;
+import ecs100.UIFileChooser;
 /**
  * Displays images in the GUI.
  * writes text in the GUI
@@ -14,20 +15,20 @@ public class Gui {
   private Card card;
   
   // img start pos
-  private double x = 30;
-  private double y = 30;
+  private double imgX = 30;
+  private double imgY = 30;
   
   // img size
-  private final double Width = 250;
-  private final double Height = 350;
+  private static final double WIDTH = 250;
+  private static final double HEIGHT = 350;
   
   // text pos
-  private final int NmPos = 400;
-  private final int VlPos = 430;
+  private static final int NM_POS = 400;
+  private static final int VL_POS = 430;
   
   //max value user can enter
   //value taken from most expensive pokemon card sold (5.75mil) rounded up
-  final double MAX_VALUE = 6000000;
+  private static final double MAX_VALUE = 6000000;
   
   private int value;
     
@@ -134,11 +135,11 @@ public class Gui {
    */
   public void displayCard() {
     //displays the card
-    UI.drawImage(cardCol.getCard().getImg(), this.x, this.y, this.Width, this.Height);
+    UI.drawImage(cardCol.getCard().getImg(), this.imgX, this.imgY, this.WIDTH, this.HEIGHT);
     
     //displays the information
-    UI.drawString("Name: " + cardCol.getCard().getName(), this.x, this.NmPos);
-    UI.drawString("Value: $" + cardCol.getCard().getValue(), this.x, this.VlPos);
+    UI.drawString("Name: " + cardCol.getCard().getName(), this.imgX, this.NM_POS);
+    UI.drawString("Value: $" + cardCol.getCard().getValue(), this.imgX, this.VL_POS);
   }
   
   /**
@@ -147,8 +148,8 @@ public class Gui {
    */
   public void doMouse(String action, double mouseX, double mouseY) {
     //checks if mouse clicked on card
-    if (action.equals("clicked") && mouseX > this.x && mouseX < this.x + this.Width
-        && mouseY > this.y && mouseY < this.y + this.Height) {
+    if (action.equals("clicked") && mouseX > this.imgX && mouseX < this.imgX + this.WIDTH
+        && mouseY > this.imgY && mouseY < this.imgY + this.HEIGHT) {
       //hides current card info
       UI.clearGraphics();
     }
